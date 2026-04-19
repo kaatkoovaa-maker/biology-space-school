@@ -95,6 +95,10 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
           <div className="mt-4 rounded-[1.7rem] border border-white/10 bg-black/20 p-4 text-sm text-slate-300">
             Простыми словами: {lesson.theory[0]}
           </div>
+          <div className="mt-4 rounded-[1.7rem] border border-cyanGlow/20 bg-black/20 p-4 text-sm text-slate-300">
+            <span className="font-semibold text-white">Что важно запомнить:</span>{" "}
+            {lesson.theory[lesson.theory.length - 1]}
+          </div>
         </div>
         <div className="min-h-[220px] bg-cover bg-center sm:min-h-[280px]" style={{ backgroundImage: `url(${lesson.image})` }} />
       </div>
