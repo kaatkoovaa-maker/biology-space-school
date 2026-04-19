@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>БиоЛогика Demo Preview</title>
+    <style>
+      :root {
+        --bg: #060816;
+        --bg-soft: rgba(11, 18, 40, 0.78);
+        --card: rgba(255, 255, 255, 0.06);
+        --card-strong: rgba(255, 255, 255, 0.1);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #eef4ff;
+        --muted: #a5b1d1;
+        --cyan: #7df9ff;
+        --blue: #68aaff;
+        --pink: #ff7be8;
+        --violet: #aa8cff;
+        --lime: #9dffcb;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 20%, rgba(110, 90, 255, 0.2), transparent 18%),
+          radial-gradient(circle at 82% 12%, rgba(66, 168, 255, 0.18), transparent 18%),
+          radial-gradient(circle at 55% 70%, rgba(255, 123, 232, 0.14), transparent 20%),
+          linear-gradient(180deg, #03040b 0%, #060816 42%, #091126 100%);
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 8% 14%, rgba(255,255,255,0.95) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 18% 34%, rgba(255,255,255,0.9) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 32% 12%, rgba(255,255,255,0.85) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 48% 22%, rgba(255,255,255,0.75) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 58% 10%, rgba(255,255,255,0.95) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 74% 26%, rgba(255,255,255,0.8) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 88% 16%, rgba(255,255,255,0.92) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 12% 74%, rgba(255,255,255,0.9) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 38% 82%, rgba(255,255,255,0.75) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 68% 76%, rgba(255,255,255,0.9) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 92% 70%, rgba(255,255,255,0.95) 0 1px, transparent 1.5px);
+        pointer-events: none;
+        opacity: 0.7;
+      }
+
+      .shell {
+        position: relative;
+        z-index: 1;
+        width: min(1180px, calc(100% - 24px));
+        margin: 24px auto;
+      }
+
+      .glass {
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 0;
+        overflow: hidden;
+        border-radius: 34px;
+      }
+
+      .hero-copy, .hero-login { padding: 28px; }
+      .hero-copy { border-right: 1px solid var(--line); }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--line);
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--cyan), var(--blue), var(--pink));
+        position: relative;
+        box-shadow: 0 0 26px rgba(125, 249, 255, 0.22);
+      }
+
+      .logo-mark::before,
+      .logo-mark::after {
+        content: "";
+        position: absolute;
+        inset: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.45);
+      }
+
+      .logo-mark::after {
+        inset: 17px;
+        background: white;
+        border: none;
+      }
+
+      h1, h2, h3, h4, p { margin: 0; }
+      h1 {
+        margin-top: 22px;
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      .lead {
+        margin-top: 18px;
+        max-width: 700px;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .chips, .badges, .stats, .nav, .screen-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chips { margin-top: 24px; }
+
+      .chip, .badge, .nav button, .screen-nav button, .lesson-pill {
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.04);
+        color: var(--text);
+      }
+
+      .chip {
+        flex: 1 1 180px;
+        min-width: 0;
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .chip strong, .section-title { display: block; margin-bottom: 6px; }
+      .muted { color: var(--muted); }
+
+      .story-card, .card, .planet-card, .lesson-card, .achievement-card {
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: var(--card);
+      }
+
+      .story-card {
+        margin-top: 22px;
+        padding: 18px;
+      }
+
+      .badges { margin-top: 18px; }
+
+      .badge {
+        padding: 12px 14px;
+        border-radius: 18px;
+        min-width: 0;
+        flex: 1 1 160px;
+      }
+
+      .hero-login h2 { font-size: 1.5rem; margin-bottom: 16px; }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding: 6px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+      }
+
+      .tabs span {
+        padding: 12px 14px;
+        text-align: center;
+        border-radius: 999px;
+      }
+
+      .tabs .active {
+        background: rgba(255,255,255,0.13);
+      }
+
+      .form-box {
+        display: grid;
+        gap: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .field input {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.05);
+        color: var(--text);
+      }
+
+      .cta {
+        border: none;
+        border-radius: 18px;
+        padding: 14px 18px;
+        font-weight: 700;
+        color: #04101f;
+        background: linear-gradient(90deg, var(--cyan), var(--blue), var(--pink));
+      }
+
+      .panel {
+        margin-top: 18px;
+        padding: 22px;
+        border-radius: 30px;
+      }
+
+      .nav {
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .nav button, .screen-nav button {
+        padding: 10px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+
+      .screen-nav button.active {
+        background: rgba(125,249,255,0.14);
+        color: var(--cyan);
+        box-shadow: 0 0 20px rgba(125,249,255,0.12);
+      }
+
+      .stats {
+        margin-top: 18px;
+      }
+
+      .card {
+        padding: 18px;
+        flex: 1 1 190px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .planets {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .planet-card, .lesson-card, .achievement-card {
+        padding: 18px;
+      }
+
+      .planet-glow {
+        width: 104px;
+        height: 104px;
+        margin: 0 auto 14px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 0 34px rgba(125,249,255,0.15);
+      }
+
+      .planet-inner {
+        width: 62px;
+        height: 62px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.25);
+        background: rgba(7, 12, 28, 0.5);
+      }
+
+      .progress {
+        margin-top: 12px;
+        height: 8px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.05);
+      }
+
+      .progress > span {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--cyan), var(--pink));
+      }
+
+      .lesson-grid, .profile-grid, .achievements {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .lesson-card.big {
+        grid-column: span 2;
+      }
+
+      .lesson-pill {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+
+      .achievement-card {
+        display: flex;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .achievement-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 20px;
+        flex: 0 0 58px;
+        display: grid;
+        place-items: center;
+        font-size: 1.3rem;
+        background: linear-gradient(135deg, rgba(125,249,255,0.95), rgba(255,123,232,0.95));
+        box-shadow: 0 0 28px rgba(125,249,255,0.18);
+      }
+
+      .screen { display: none; }
+      .screen.active { display: block; }
+
+      @media (max-width: 980px) {
+        .hero,
+        .planets,
+        .lesson-grid,
+        .profile-grid,
+        .achievements {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy { border-right: 0; border-bottom: 1px solid var(--line); }
+        .lesson-card.big { grid-column: span 1; }
+      }
+
+      @media (max-width: 640px) {
+        .shell { width: min(100% - 12px, 1180px); margin: 12px auto; }
+        .hero-copy, .hero-login, .panel { padding: 16px; }
+        .nav { align-items: start; flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="hero glass">
+        <div class="hero-copy">
+          <div class="logo">
+            <div class="logo-mark"></div>
+            <div>
+              <strong>БиоЛогика</strong>
+              <div class="muted">space biology school</div>
+            </div>
+          </div>
+          <h1>ЕГЭ по биологии как сериал в космосе.</h1>
+          <p class="lead">
+            Люмен начинает каплей инфузорией в знаниях, проходит 7 планет и в финале становится
+            человеком разумным в биологии — уверенным профи, который реально понимает тему.
+          </p>
+          <div class="chips">
+            <div class="chip"><strong>7 планет</strong><span class="muted">Протос → Экосфера</span></div>
+            <div class="chip"><strong>Люмен и Вита</strong><span class="muted">сюжет, рост и характер</span></div>
+            <div class="chip"><strong>ЕГЭ как сериал</strong><span class="muted">каждая планета как новая серия</span></div>
+          </div>
+          <div class="story-card">
+            <strong class="section-title">Эволюция Люмена</strong>
+            <p class="muted">
+              Сначала он почти ничего не понимает. Потом осваивает клетку, гены, человека,
+              встречает Виту, запускает свой проект и дорастает до осознанного профи в биологии.
+            </p>
+          </div>
+          <div class="badges">
+            <div class="badge"><strong>Люмен</strong><div class="muted">главный герой</div></div>
+            <div class="badge"><strong>Вита</strong><div class="muted">появляется на Витариуме</div></div>
+            <div class="badge"><strong>Lumen Lab</strong><div class="muted">проект на Эволюсе</div></div>
+          </div>
+        </div>
+        <div class="hero-login">
+          <h2>Демо-вход</h2>
+          <div class="tabs">
+            <span class="active">Вход</span>
+            <span>Регистрация</span>
+          </div>
+          <div class="form-box">
+            <label class="field">
+              <span class="muted">Email</span>
+              <input type="email" placeholder="demo@biologika.space" />
+            </label>
+            <label class="field">
+              <span class="muted">Пароль</span>
+              <input type="password" placeholder="••••••••" />
+            </label>
+            <button class="cta" type="button" id="enter-demo">Открыть демо</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel glass" id="demo-app" style="display:none;">
+        <div class="nav">
+          <div>
+            <h2>Демо БиоЛогики</h2>
+            <p class="muted">Один HTML-файл с экранами приложения без сервера</p>
+          </div>
+          <div class="screen-nav">
+            <button class="active" data-screen="dashboard">Дашборд</button>
+            <button data-screen="map">Планеты</button>
+            <button data-screen="lesson">Урок</button>
+            <button data-screen="profile">Профиль</button>
+          </div>
+        </div>
+
+        <div class="screen active" id="dashboard">
+          <div class="stats">
+            <div class="card"><strong>Люмен</strong><div class="muted">уровень 3 • капля, которая уже шарит</div></div>
+            <div class="card"><strong>XP</strong><div class="muted">980 / 1500 до новой формы</div></div>
+            <div class="card"><strong>Миссия</strong><div class="muted">впечатлить Виту знаниями, а не пафосом</div></div>
+          </div>
+          <div class="stats">
+            <div class="card"><strong>Форма 1</strong><div class="muted">капля инфузория в знаниях</div></div>
+            <div class="card"><strong>Форма 4</strong><div class="muted">Люмен уже понимает многообразие жизни</div></div>
+            <div class="card"><strong>Финал</strong><div class="muted">человек разумный в биологии</div></div>
+          </div>
+        </div>
+
+        <div class="screen" id="map">
+          <div class="grid planets">
+            <div class="planet-card">
+              <div class="planet-glow" style="background:linear-gradient(135deg,#7df9ff,#4f78ff);"><div class="planet-inner"></div></div>
+              <strong>Протос</strong>
+              <p class="muted">Научный метод. Люмен только появился и ещё плавает в вопросах.</p>
+              <div class="progress"><span style="width:100%"></span></div>
+            </div>
+            <div class="planet-card">
+              <div class="planet-glow" style="background:linear-gradient(135deg,#68aaff,#7df9ff);"><div class="planet-inner"></div></div>
+              <strong>Цитара</strong>
+              <p class="muted">Клетка. Люмен впервые понимает, как жизнь устроена изнутри.</p>
+              <div class="progress"><span style="width:68%"></span></div>
+            </div>
+            <div class="planet-card">
+              <div class="planet-glow" style="background:linear-gradient(135deg,#ff7be8,#aa8cff);"><div class="planet-inner"></div></div>
+              <strong>Генезис</strong>
+              <p class="muted">Гены. Будущее больше не магия, а система признаков и закономерностей.</p>
+              <div class="progress"><span style="width:22%"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="screen" id="lesson">
+          <div class="grid lesson-grid">
+            <div class="lesson-card big">
+              <strong>Урок: Клеточная теория</strong>
+              <p class="muted" style="margin-top:10px;">
+                Клетка — это базовая единица живого. Всё живое либо состоит из клеток, либо связано
+                с клеточными процессами. Простым языком: если понял клетку, дальше биология уже не выглядит хаосом.
+              </p>
+              <span class="lesson-pill">Видео: сюда можно встроить YouTube</span>
+            </div>
+            <div class="lesson-card">
+              <strong>Вопрос 1</strong>
+              <p class="muted" style="margin-top:10px;">Какой органоид называют энергетической станцией клетки?</p>
+              <span class="lesson-pill">Митохондрия</span>
+            </div>
+            <div class="lesson-card">
+              <strong>Реакция Люмена</strong>
+              <p class="muted" style="margin-top:10px;">"Нормально. Я уже не просто капля, я биосистема с амбициями."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="screen" id="profile">
+          <div class="grid profile-grid">
+            <div class="card">
+              <strong>Профиль</strong>
+              <p class="muted" style="margin-top:10px;">Имя: demo-user</p>
+              <p class="muted">Ник: biologika_traveler</p>
+              <p class="muted">Траектория: от инфузории до профи</p>
+            </div>
+            <div class="card">
+              <strong>Текущая миссия</strong>
+              <p class="muted" style="margin-top:10px;">Шептун генов</p>
+              <p class="muted">Понять наследственность и начать решать задачи уверенно.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 style="margin-bottom:12px;">Достижения</h3>
+            <div class="grid achievements">
+              <div class="achievement-card">
+                <div class="achievement-icon">💧</div>
+                <div><strong>Капля старта</strong><p class="muted">Люмен появился на Протосе.</p></div>
+              </div>
+              <div class="achievement-card">
+                <div class="achievement-icon">🪐</div>
+                <div><strong>Протос закрыт</strong><p class="muted">Первая планета пройдена целиком.</p></div>
+              </div>
+              <div class="achievement-card">
+                <div class="achievement-icon">🧬</div>
+                <div><strong>Гены на горизонте</strong><p class="muted">Открыт Генезис.</p></div>
+              </div>
+              <div class="achievement-card">
+                <div class="achievement-icon">👑</div>
+                <div><strong>Человек разумный</strong><p class="muted">Финальная форма профи в биологии.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const enterButton = document.getElementById("enter-demo");
+      const demoApp = document.getElementById("demo-app");
+      const navButtons = document.querySelectorAll("[data-screen]");
+      const screens = document.querySelectorAll(".screen");
+
+      enterButton.addEventListener("click", () => {
+        demoApp.style.display = "block";
+        demoApp.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navButtons.forEach((item) => item.classList.remove("active"));
+          screens.forEach((screen) => screen.classList.remove("active"));
+          button.classList.add("active");
+          document.getElementById(button.dataset.screen).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
