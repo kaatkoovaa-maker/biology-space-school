@@ -37,7 +37,7 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
             <p className="text-sm uppercase tracking-[0.3em] text-cyanGlow">Маршрут уроков</p>
             <h3 className="mt-2 font-display text-xl text-white sm:text-2xl">7 планет по 10 занятий</h3>
           </div>
-          <div className="max-w-full rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-300 sm:text-sm">
+          <div className="max-w-full rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs text-slate-300 sm:text-sm">
             Сейчас открыт: {lesson.title}
           </div>
         </div>
@@ -53,8 +53,8 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
                 onClick={() => onSelectLesson(level.id)}
                 className={`rounded-[1.4rem] border p-4 text-left transition ${
                   isActive
-                    ? "border-cyanGlow/40 bg-cyanGlow/10 text-white shadow-neon"
-                    : "border-white/10 bg-white/[0.03] text-slate-200 hover:border-pinkGlow/30 hover:bg-white/5"
+                    ? "border-cyanGlow/40 bg-cyanGlow/[0.12] text-white shadow-neon"
+                    : "border-white/10 bg-white/[0.022] text-slate-200 hover:border-pinkGlow/30 hover:bg-white/[0.04]"
                 }`}
               >
                 <p className="text-xs uppercase tracking-[0.24em] text-slate-400">{planet.orbit}</p>
@@ -69,7 +69,7 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
         <div className="p-6 sm:p-8">
           <p className="text-sm uppercase tracking-[0.3em] text-cyanGlow">Текущий урок</p>
           <h3 className="mt-3 font-display text-2xl sm:text-3xl">{lesson.title}</h3>
-          <div className="mt-6 rounded-[1.7rem] border border-white/10 bg-white/[0.03] p-5">
+          <div className="mt-6 rounded-[1.7rem] border border-white/10 bg-white/[0.022] p-5 backdrop-blur-xl">
             <p className="text-xs uppercase tracking-[0.24em] text-pinkGlow">Теория</p>
             <div className="mt-4 space-y-4 text-slate-300">
               {lesson.theory.map((paragraph) => (
@@ -79,23 +79,23 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
               ))}
             </div>
           </div>
-          <div className="mt-4 rounded-[1.7rem] border border-cyanGlow/20 bg-cyanGlow/10 p-5 text-sm text-slate-200">
+          <div className="mt-4 rounded-[1.7rem] border border-cyanGlow/20 bg-cyanGlow/[0.11] p-5 text-sm text-slate-200 backdrop-blur-xl">
             <p className="text-xs uppercase tracking-[0.24em] text-cyanGlow">{lesson.videoTitle}</p>
             <div className="mt-4 flex min-h-[180px] items-center justify-center rounded-[1.4rem] border border-white/10 bg-black/30 p-4 text-center text-slate-300 sm:p-6">
               {lesson.videoPlaceholder}
             </div>
           </div>
-          <div className="mt-4 rounded-[1.7rem] border border-pinkGlow/20 bg-pinkGlow/10 p-4 text-sm text-slate-200">
+          <div className="mt-4 rounded-[1.7rem] border border-pinkGlow/20 bg-pinkGlow/[0.11] p-4 text-sm text-slate-200 backdrop-blur-xl">
             Награда за этап эволюции:{" "}
             <span className="font-semibold text-white">{lesson.rewardXp} XP</span>
           </div>
-          <div className="mt-4 rounded-[1.7rem] border border-white/10 bg-black/20 p-4 text-sm text-slate-300">
+          <div className="mt-4 rounded-[1.7rem] border border-white/10 bg-[rgba(8,14,34,0.24)] p-4 text-sm text-slate-300 backdrop-blur-xl">
             На этой планете: <span className="font-semibold text-white">{lesson.quiz.length} вопроса</span> для закрепления после теории.
           </div>
-          <div className="mt-4 rounded-[1.7rem] border border-white/10 bg-black/20 p-4 text-sm text-slate-300">
+          <div className="mt-4 rounded-[1.7rem] border border-white/10 bg-[rgba(8,14,34,0.24)] p-4 text-sm text-slate-300 backdrop-blur-xl">
             Простыми словами: {lesson.theory[0]}
           </div>
-          <div className="mt-4 rounded-[1.7rem] border border-cyanGlow/20 bg-black/20 p-4 text-sm text-slate-300">
+          <div className="mt-4 rounded-[1.7rem] border border-cyanGlow/20 bg-[rgba(8,14,34,0.24)] p-4 text-sm text-slate-300 backdrop-blur-xl">
             <span className="font-semibold text-white">Что важно запомнить:</span>{" "}
             {lesson.theory[lesson.theory.length - 1]}
           </div>
@@ -110,7 +110,7 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
         </div>
         <div className="space-y-6">
           {lesson.quiz.map((question, index) => (
-            <div key={question.id} className="rounded-3xl border border-white/10 bg-black/20 p-5">
+            <div key={question.id} className="rounded-3xl border border-white/10 bg-[rgba(8,14,34,0.24)] p-5 backdrop-blur-xl">
               <p className="font-medium text-white">
                 {index + 1}. {question.question}
               </p>
@@ -118,7 +118,7 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
                 {question.options.map((option) => (
                   <label
                     key={option}
-                    className="flex cursor-pointer items-start gap-3 rounded-2xl border border-white/10 px-4 py-3 transition hover:border-cyanGlow/30 hover:bg-white/5"
+                    className="flex cursor-pointer items-start gap-3 rounded-2xl border border-white/10 px-4 py-3 transition hover:border-cyanGlow/30 hover:bg-white/[0.04]"
                   >
                     <input
                       type="radio"
@@ -142,7 +142,7 @@ export function LessonPanel({ lesson, onComplete, planets, onSelectLesson }) {
             Завершить занятие
           </button>
           {submitted && (
-            <div className="rounded-2xl border border-cyanGlow/20 bg-cyanGlow/10 px-4 py-3 text-sm text-slate-200">
+            <div className="rounded-2xl border border-cyanGlow/20 bg-cyanGlow/[0.11] px-4 py-3 text-sm text-slate-200 backdrop-blur-xl">
               <p>
                 Результат: {score}/{lesson.quiz.length}. XP начислен.
               </p>

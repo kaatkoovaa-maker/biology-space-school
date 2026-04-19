@@ -44,7 +44,7 @@ export function DashboardHero({ user, missionTrack }) {
 
 function Stat({ label, value, borderClass }) {
   return (
-    <div className={`rounded-3xl border bg-black/20 p-5 ${borderClass}`}>
+    <div className={`rounded-3xl border bg-[rgba(10,16,36,0.28)] p-5 backdrop-blur-xl ${borderClass}`}>
       <p className="text-sm text-slate-400">{label}</p>
       <p className="mt-2 text-2xl font-semibold text-white">{value}</p>
     </div>

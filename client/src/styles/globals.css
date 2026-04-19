@@ -11,9 +11,11 @@
 body {
   @apply m-0 min-h-screen bg-space font-body text-slate-100;
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(255, 79, 216, 0.18), transparent 18%),
-    radial-gradient(circle at 80% 0%, rgba(65, 240, 255, 0.16), transparent 22%),
-    linear-gradient(180deg, #03040b 0%, #070816 40%, #091127 100%);
+    radial-gradient(circle at 18% 16%, rgba(129, 98, 255, 0.22), transparent 18%),
+    radial-gradient(circle at 82% 10%, rgba(68, 228, 255, 0.18), transparent 20%),
+    radial-gradient(circle at 52% 44%, rgba(255, 84, 201, 0.08), transparent 24%),
+    radial-gradient(circle at 46% 78%, rgba(88, 134, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #02030a 0%, #050816 34%, #081126 66%, #0a1430 100%);
 }
 
 #root {
@@ -29,7 +31,7 @@ h4,
 }
 
 .glass-card {
-  @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-neon;
+  @apply rounded-3xl border border-white/10 bg-white/[0.025] backdrop-blur-xl shadow-neon;
   position: relative;
   overflow: hidden;
 }
@@ -39,19 +41,34 @@ h4,
   position: absolute;
   inset: -1px;
   background:
-    radial-gradient(circle at top left, rgba(65, 240, 255, 0.14), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(255, 79, 216, 0.14), transparent 24%);
+    radial-gradient(circle at top left, rgba(65, 240, 255, 0.1), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(162, 120, 255, 0.12), transparent 24%);
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.82;
 }
 
 .planet-ring {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 0 25px rgba(65, 240, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 0 32px rgba(96, 157, 255, 0.16);
 }
 
 .star-field {
-  background-size: auto, 34px 34px, 34px 34px;
-  background-position: center, center, center;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(255,255,255,0.95) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 18% 30%, rgba(255,255,255,0.84) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 31% 9%, rgba(173, 214, 255, 0.88) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 44% 22%, rgba(255,255,255,0.92) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 58% 14%, rgba(190, 163, 255, 0.78) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 74% 8%, rgba(255,255,255,0.86) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 86% 24%, rgba(115, 237, 255, 0.88) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 12% 58%, rgba(255,255,255,0.82) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 26% 74%, rgba(190, 163, 255, 0.7) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 42% 62%, rgba(255,255,255,0.9) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 63% 78%, rgba(115, 237, 255, 0.72) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 82% 68%, rgba(255,255,255,0.88) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 92% 44%, rgba(190, 163, 255, 0.7) 0 1px, transparent 1.8px),
+    linear-gradient(transparent, transparent);
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
@@ -72,20 +89,20 @@ h4,
 }
 
 .aurora-layer::before {
-  width: 22rem;
-  height: 22rem;
-  left: -4rem;
-  top: 6rem;
-  background: rgba(65, 240, 255, 0.12);
+  width: 28rem;
+  height: 28rem;
+  left: -6rem;
+  top: 4rem;
+  background: rgba(82, 196, 255, 0.12);
   animation: drift 18s ease-in-out infinite;
 }
 
 .aurora-layer::after {
-  width: 26rem;
-  height: 26rem;
-  right: -6rem;
-  top: 12rem;
-  background: rgba(255, 79, 216, 0.12);
+  width: 30rem;
+  height: 30rem;
+  right: -7rem;
+  top: 10rem;
+  background: rgba(155, 112, 255, 0.13);
   animation: drift 22s ease-in-out infinite reverse;
 }
 
@@ -134,7 +151,7 @@ h4,
   position: absolute;
   border-radius: 9999px;
   background: white;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.48);
   animation: twinkle 4.5s ease-in-out infinite;
 }
 
@@ -149,6 +166,17 @@ h4,
 .hover-lift:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 18px 45px rgba(65, 240, 255, 0.14);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
 }
 
 .glow-text {

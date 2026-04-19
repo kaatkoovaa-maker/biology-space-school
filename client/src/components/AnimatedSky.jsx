@@ -8,7 +8,13 @@ const dots = [
   { top: "60%", left: "38%", size: 2, delay: "0.1s", duration: "4.1s" },
   { top: "72%", left: "18%", size: 3, delay: "2s", duration: "5.2s" },
   { top: "78%", left: "74%", size: 2, delay: "0.7s", duration: "6s" },
-  { top: "88%", left: "54%", size: 4, delay: "1.2s", duration: "4.9s" }
+  { top: "88%", left: "54%", size: 4, delay: "1.2s", duration: "4.9s" },
+  { top: "10%", left: "48%", size: 2, delay: "0.6s", duration: "5.4s" },
+  { top: "18%", left: "92%", size: 3, delay: "1.6s", duration: "4.4s" },
+  { top: "36%", left: "44%", size: 2, delay: "2.2s", duration: "5.7s" },
+  { top: "52%", left: "70%", size: 4, delay: "0.3s", duration: "5.1s" },
+  { top: "66%", left: "6%", size: 2, delay: "1.9s", duration: "4.7s" },
+  { top: "84%", left: "88%", size: 3, delay: "0.8s", duration: "5.9s" }
 ];
 
 const comets = [

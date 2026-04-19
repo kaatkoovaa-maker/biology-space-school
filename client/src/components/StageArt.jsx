@@ -1,3 +1,58 @@
+import lumenImage from "../assets/lumen-cut.png";
+import vitaImage from "../assets/vita-cut.png";
+import protosPlanet from "../assets/planets/custom/protos.png";
+import citaraPlanet from "../assets/planets/custom/citara.png";
+import genezisPlanet from "../assets/planets/custom/genezis.png";
+import vitariumPlanet from "../assets/planets/custom/vitarium.png";
+import hominisPlanet from "../assets/planets/custom/hominis.png";
+import evolusPlanet from "../assets/planets/custom/evolus.png";
+import ecospherePlanet from "../assets/planets/custom/ecosphere.png";
+
+const stageVisuals = {
+  хаос: {
+    src: protosPlanet,
+    alt: "Протос",
+    glow: "#FF9A3D",
+    shadow: "drop-shadow(0 6px 12px rgba(255,140,40,0.35))"
+  },
+  структура: {
+    src: citaraPlanet,
+    alt: "Цитара",
+    glow: "#58C6FF",
+    shadow: "drop-shadow(0 6px 12px rgba(88,198,255,0.35))"
+  },
+  гены: {
+    src: genezisPlanet,
+    alt: "Генезис",
+    glow: "#4F8DFF",
+    shadow: "drop-shadow(0 6px 12px rgba(86,138,255,0.32))"
+  },
+  импульс: {
+    src: vitariumPlanet,
+    alt: "Витариум",
+    glow: "#FF7BE8",
+    shadow: "drop-shadow(0 6px 12px rgba(255,123,232,0.3))"
+  },
+  сборка: {
+    src: hominisPlanet,
+    alt: "Хоминис",
+    glow: "#69F0AE",
+    shadow: "drop-shadow(0 6px 12px rgba(105,240,174,0.28))"
+  },
+  рывок: {
+    src: evolusPlanet,
+    alt: "Эволюс",
+    glow: "#C8FF5A",
+    shadow: "drop-shadow(0 6px 12px rgba(180,255,120,0.28))"
+  },
+  профи: {
+    src: ecospherePlanet,
+    alt: "Экосфера",
+    glow: "#9DF7D2",
+    shadow: "drop-shadow(0 6px 12px rgba(125,255,210,0.28))"
+  }
+};
+
 export function StageArt() {
   return (
     <div className="mb-8 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
@@ -22,9 +77,32 @@ export function StageArt() {
             { x: 586, y: 58, r: 30, c: "#9DF7D2", t: "профи" }
           ].map((item) => (
             <g key={item.t}>
-              <circle cx={item.x} cy={item.y} r={item.r + 10} fill={item.c} fillOpacity="0.12" />
-              <circle cx={item.x} cy={item.y} r={item.r} fill={item.c} fillOpacity="0.9" />
-              <circle cx={item.x - 5} cy={item.y - 6} r={4} fill="white" fillOpacity="0.7" />
+              {stageVisuals[item.t] ? (
+                <>
+                  <circle
+                    cx={item.x}
+                    cy={item.y}
+                    r={item.r + 16}
+                    fill={stageVisuals[item.t].glow}
+                    fillOpacity="0.18"
+                  />
+                  <image
+                    href={stageVisuals[item.t].src}
+                    x={item.x - 28}
+                    y={item.y - 28}
+                    width="56"
+                    height="56"
+                    preserveAspectRatio="xMidYMid meet"
+                    style={{ filter: stageVisuals[item.t].shadow }}
+                  />
+                </>
+              ) : (
+                <>
+                  <circle cx={item.x} cy={item.y} r={item.r + 10} fill={item.c} fillOpacity="0.12" />
+                  <circle cx={item.x} cy={item.y} r={item.r} fill={item.c} fillOpacity="0.9" />
+                  <circle cx={item.x - 5} cy={item.y - 6} r={4} fill="white" fillOpacity="0.7" />
+                </>
+              )}
               <text x={item.x - 20} y={item.y + 42} fill="white" fontSize="14" fontFamily="Manrope, sans-serif">{item.t}</text>
             </g>
           ))}
@@ -35,7 +113,7 @@ export function StageArt() {
           <p>Хоминис, Эволюс и Экосфера собирают его в человека, который понимает биологию системно и выходит в финал уже как профи.</p>
         </div>
       </div>
-      <div className="rounded-[2rem] border border-white/10 bg-black/20 p-5">
+      <div className="rounded-[2rem] border border-white/10 bg-[rgba(8,14,34,0.26)] p-5 backdrop-blur-xl">
         <p className="text-xs uppercase tracking-[0.3em] text-pinkGlow">Ключевые фигуры</p>
         <div className="mt-4 rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/6 via-transparent to-white/4 p-4">
           <div className="grid items-center gap-4 sm:grid-cols-[0.9fr_1.1fr]">
@@ -75,7 +153,7 @@ function Card({ title, text, accent, portrait }) {
   };
 
   return (
-    <div className={`rounded-[1.5rem] border bg-white/5 p-4 ${accents[accent]}`}>
+    <div className={`rounded-[1.5rem] border bg-white/[0.03] p-4 backdrop-blur-xl ${accents[accent]}`}>
       <div className="mb-3">
         <MiniPortrait type={portrait} />
       </div>
@@ -87,63 +165,44 @@ function Card({ title, text, accent, portrait }) {
 
 function CharacterScene() {
   return (
-    <svg className="h-40 w-full" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="4" y="4" width="312" height="172" rx="28" fill="rgba(8,17,41,0.35)" stroke="rgba(255,255,255,0.08)" />
-      <circle cx="84" cy="82" r="42" fill="#7DF9FF" fillOpacity="0.9" />
-      <circle cx="82" cy="77" r="10" fill="white" />
-      <circle cx="100" cy="77" r="10" fill="white" />
-      <circle cx="85" cy="80" r="4" fill="#081129" />
-      <circle cx="103" cy="80" r="4" fill="#081129" />
-      <path d="M82 98C87 103 92 106 98 106C103 106 109 103 113 98" stroke="#E8FBFF" strokeWidth="4" strokeLinecap="round" />
-      <circle cx="230" cy="72" r="34" fill="#FFE8FA" />
-      <path d="M197 80C202 43 223 28 250 34C271 38 284 52 286 77C278 58 264 50 245 49C224 48 210 58 197 80Z" fill="#FF7BE8" />
-      <path d="M206 108C213 90 225 84 240 84C254 84 266 91 273 108L286 144C291 156 280 170 266 170H214C200 170 189 156 194 144L206 108Z" fill="url(#vitaFill)" />
-      <path d="M146 84C170 86 186 88 198 91" stroke="rgba(255,255,255,0.7)" strokeWidth="3" strokeDasharray="6 6" />
-      <text x="50" y="150" fill="#D8F8FF" fontSize="16" fontFamily="Manrope, sans-serif">Люмен</text>
-      <text x="220" y="150" fill="#FFD5FA" fontSize="16" fontFamily="Manrope, sans-serif">Вита</text>
-      <defs>
-        <linearGradient id="vitaFill" x1="210" y1="84" x2="270" y2="170" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FFD7F8" />
-          <stop offset="1" stopColor="#7DF9FF" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div className="relative h-40 w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[rgba(8,17,41,0.35)]">
+      <div className="absolute inset-y-0 left-0 w-1/2">
+        <div className="absolute inset-[14%_12%_14%_10%] rounded-[1.5rem] bg-cyanGlow/15 blur-2xl" />
+        <img
+          src={lumenImage}
+          alt="Люмен"
+          className="absolute bottom-2 left-1/2 h-[88%] w-auto -translate-x-1/2 object-contain drop-shadow-[0_16px_28px_rgba(125,249,255,0.35)]"
+        />
+        <p className="absolute bottom-3 left-4 text-sm text-cyan-100">Люмен</p>
+      </div>
+      <div className="absolute inset-y-0 right-0 w-1/2">
+        <div className="absolute inset-[10%_12%_8%_14%] rounded-[1.5rem] bg-pinkGlow/[0.09] blur-2xl" />
+        <img
+          src={vitaImage}
+          alt="Вита"
+          className="absolute bottom-2 left-[56%] h-[88%] w-auto -translate-x-1/2 object-contain drop-shadow-[0_16px_28px_rgba(255,123,232,0.24)]"
+        />
+        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 68C32 70 48 72 60 75" stroke="rgba(255,255,255,0.7)" strokeWidth="3" strokeDasharray="6 6" />
+          <text x="70" y="158" fill="#FFD5FA" fontSize="16" fontFamily="Manrope, sans-serif">Вита</text>
+        </svg>
+      </div>
+    </div>
   );
 }
 
 function MiniPortrait({ type }) {
   if (type === "vita") {
     return (
-      <svg className="h-20 w-20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="38" fill="rgba(255,123,232,0.16)" />
-        <circle cx="40" cy="28" r="14" fill="#FFE8FA" />
-        <path d="M24 31C25 17 34 11 47 13C58 15 64 23 64 34C59 25 53 22 45 21C36 20 30 23 24 31Z" fill="#FF7BE8" />
-        <path d="M30 45C33 38 37 35 40 35C43 35 47 38 50 45L58 64H22L30 45Z" fill="url(#miniVita)" />
-        <defs>
-          <linearGradient id="miniVita" x1="26" y1="36" x2="54" y2="64" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FFD7F8" />
-            <stop offset="1" stopColor="#7DF9FF" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <div className="relative h-20 w-20 overflow-hidden rounded-full border border-pinkGlow/20 bg-pinkGlow/[0.09]">
+        <img src={vitaImage} alt="Вита" className="h-full w-full object-cover object-[52%_18%] scale-125" />
+      </div>
     );
   }
 
   return (
-    <svg className="h-20 w-20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="40" r="38" fill="rgba(125,249,255,0.16)" />
-      <path d="M40 18C26 18 16 28 16 42C16 54 22 62 30 66C29 70 34 76 40 76C46 76 51 70 50 66C58 62 64 54 64 42C64 28 54 18 40 18Z" fill="url(#miniLumen)" />
-      <circle cx="33" cy="39" r="7" fill="white" />
-      <circle cx="47" cy="39" r="7" fill="white" />
-      <circle cx="35" cy="40" r="3" fill="#081129" />
-      <circle cx="49" cy="40" r="3" fill="#081129" />
-      <path d="M33 50C36 53 39 55 43 55C47 55 50 53 53 50" stroke="#E8FBFF" strokeWidth="3" strokeLinecap="round" />
-      <defs>
-        <linearGradient id="miniLumen" x1="20" y1="22" x2="56" y2="72" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#7DF9FF" />
-          <stop offset="1" stopColor="#2C7DF7" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div className="relative h-20 w-20 overflow-hidden rounded-full border border-cyanGlow/20 bg-cyanGlow/[0.09]">
+      <img src={lumenImage} alt="Люмен" className="h-full w-full object-cover object-center scale-110" />
+    </div>
   );
 }

@@ -44,7 +44,7 @@ export function ProfileCard({ user, missionTrack }) {
 
 function Meta({ label, value }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-black/20 p-4">
+    <div className="rounded-3xl border border-white/10 bg-[rgba(9,15,34,0.26)] p-4 backdrop-blur-xl">
       <p className="text-sm text-slate-400">{label}</p>
       <p className="mt-2 text-xl font-semibold text-white">{value}</p>
     </div>
@@ -53,8 +53,8 @@ function Meta({ label, value }) {
 
 function MissionCard({ label, title, description, accent }) {
   const accents = {
-    cyanGlow: "border-cyanGlow/20 bg-cyanGlow/10",
-    pinkGlow: "border-pinkGlow/20 bg-pinkGlow/10"
+    cyanGlow: "border-cyanGlow/20 bg-cyanGlow/[0.11]",
+    pinkGlow: "border-pinkGlow/20 bg-pinkGlow/[0.11]"
   };
 
   return (

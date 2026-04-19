@@ -12,7 +12,7 @@ export function DailyChallenges({ items }) {
           const progress = Math.min(100, Math.round((item.progress / item.total) * 100));
 
           return (
-            <div key={item.id} className="hover-lift rounded-3xl border border-white/10 bg-black/20 p-4">
+            <div key={item.id} className="hover-lift rounded-3xl border border-white/10 bg-[rgba(9,15,34,0.26)] p-4 backdrop-blur-xl">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-medium text-white">{item.title}</p>
@@ -20,7 +20,7 @@ export function DailyChallenges({ items }) {
                     {item.progress}/{item.total} • Награда {item.reward} XP
                   </p>
                 </div>
-                <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">
+                <span className="rounded-full bg-white/[0.04] px-3 py-1 text-xs text-slate-300">
                   {progress}%
                 </span>
               </div>

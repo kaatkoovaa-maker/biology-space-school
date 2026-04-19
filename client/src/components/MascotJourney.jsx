@@ -26,8 +26,8 @@ export function MascotJourney({ stages, currentStageId }) {
               key={stage.id}
               className={`hover-lift rounded-[1.75rem] border p-4 ${
                 isCurrent
-                  ? "border-cyanGlow/40 bg-cyanGlow/10 shadow-neon"
-                  : "border-white/10 bg-black/20 hover:border-pinkGlow/30 hover:bg-white/5"
+                  ? "border-cyanGlow/40 bg-cyanGlow/[0.11] shadow-neon"
+                  : "border-white/10 bg-[rgba(8,14,34,0.24)] hover:border-pinkGlow/30 hover:bg-white/[0.04]"
               }`}
             >
               <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Этап {index + 1}</p>
