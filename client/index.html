@@ -13,9 +13,31 @@
       <div>
         <div style="font-size:32px;font-weight:700;letter-spacing:.08em;">БиоЛогика</div>
         <div style="margin-top:12px;font-size:16px;opacity:.82;">Загружаем карту эволюции к ЕГЭ...</div>
+        <div
+          id="boot-help"
+          style="display:none;margin-top:18px;font-size:14px;line-height:1.7;opacity:.9;max-width:360px;"
+        >
+          Если экран завис, открой
+          <a href="/demo-preview.html" style="color:#7df9ff;">demo-preview.html</a>
+          или обнови страницу.
+        </div>
       </div>
     </div>
     <div id="root"></div>
+    <script>
+      window.setTimeout(function () {
+        var bootStatus = document.getElementById("boot-status");
+        var bootHelp = document.getElementById("boot-help");
+        if (bootHelp) {
+          bootHelp.style.display = "block";
+        }
+        if (bootStatus) {
+          bootStatus.style.pointerEvents = "none";
+          bootStatus.style.opacity = "0";
+          bootStatus.style.transition = "opacity 0.35s ease";
+        }
+      }, 3500);
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-  </html>
+</html>
