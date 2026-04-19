@@ -19,7 +19,6 @@ services:
   - type: web
     name: biology-space-web
     runtime: static
-    plan: free
     autoDeploy: false
     rootDir: client
     buildCommand: npm install && npm run build
