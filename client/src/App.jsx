@@ -93,6 +93,10 @@ export default function App() {
         ? current.completedLessons
         : [...current.completedLessons, selectedLessonId];
 
+      const nextLessonId = getRecommendedLessonId(completedLessons);
+      setSelectedLessonId(nextLessonId);
+      setActiveView("lesson");
+
       return {
         ...current,
         xp: leveledUp ? nextXp - current.xpToNext : nextXp,
@@ -102,7 +106,6 @@ export default function App() {
         completedLessons
       };
     });
-    setActiveView("dashboard");
   };
 
   const planets = generatePlanets(user.completedLessons);
