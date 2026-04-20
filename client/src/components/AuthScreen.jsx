@@ -1,6 +1,6 @@
 import { HeroArt } from "./HeroArt";
 
-export function AuthScreen({ mode, setMode, form, setForm, onSubmit }) {
+export function AuthScreen({ mode, setMode, form, setForm, onSubmit, onBack }) {
   return (
     <div className="auth-space-bg relative flex min-h-screen items-center justify-center overflow-hidden px-3 py-6 sm:px-4 sm:py-10">
       <div className="auth-nebula auth-nebula-a" />
@@ -61,6 +61,17 @@ export function AuthScreen({ mode, setMode, form, setForm, onSubmit }) {
           </section>
 
           <section className="relative p-5 sm:p-8 md:p-10">
+            <div className="absolute left-5 top-5 sm:left-8 sm:top-8">
+              {onBack ? (
+                <button
+                  type="button"
+                  onClick={onBack}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-slate-200 transition hover:bg-white/10 sm:px-4 sm:text-xs sm:tracking-[0.25em]"
+                >
+                  Назад к лендингу
+                </button>
+              ) : null}
+            </div>
             <div className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-slate-200 sm:right-8 sm:top-8 sm:px-4 sm:text-xs sm:tracking-[0.25em]">
               launch profile
             </div>

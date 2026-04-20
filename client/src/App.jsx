@@ -3,6 +3,7 @@ import { AchievementGrid } from "./components/AchievementGrid";
 import { AuthScreen } from "./components/AuthScreen";
 import { DailyChallenges } from "./components/DailyChallenges";
 import { DashboardHero } from "./components/DashboardHero";
+import { LandingPage } from "./components/LandingPage";
 import { LearningMap } from "./components/LearningMap";
 import { LessonPanel } from "./components/LessonPanel";
 import { MascotJourney } from "./components/MascotJourney";
@@ -36,6 +37,7 @@ const apiUrl = resolveApiUrl();
 export default function App() {
   const [user, setUser] = useState(initialUser);
   const [authMode, setAuthMode] = useState("login");
+  const [entryView, setEntryView] = useState("landing");
   const [authForm, setAuthForm] = useState({
     name: "",
     email: "",
@@ -114,6 +116,10 @@ export default function App() {
   const missionTrack = getMissionTrack(user);
 
   if (!isAuthenticated) {
+    if (entryView === "landing") {
+      return <LandingPage onStartDemo={() => setEntryView("auth")} />;
+    }
+
     return (
       <AuthScreen
         mode={authMode}
@@ -121,6 +127,7 @@ export default function App() {
         form={authForm}
         setForm={setAuthForm}
         onSubmit={handleAuth}
+        onBack={() => setEntryView("landing")}
       />
     );
   }
