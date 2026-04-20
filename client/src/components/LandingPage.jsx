@@ -188,12 +188,11 @@ export function LandingPage({ onStartDemo }) {
               Подготовка к ЕГЭ по биологии как цельный путь
             </div>
             <h1 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-6xl xl:text-7xl">
-              Из хаоса в систему. Из зубрёжки в понимание.
+              Понятная биология, за которой стоит результат.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-              БиоЛогика помогает готовиться к ЕГЭ по биологии спокойно и последовательно. Здесь
-              материал собирается в понятный маршрут: с опорой, атмосферой и ощущением, что ты
-              постепенно начинаешь видеть связи, а не просто запоминать факты.
+              Ты не учишь темы по отдельности. Ты начинаешь видеть связи — и уверенно решаешь
+              задания ЕГЭ.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -202,14 +201,14 @@ export function LandingPage({ onStartDemo }) {
                 onClick={onStartDemo}
                 className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-gradient-to-r from-cyanGlow via-sky-400 to-pinkGlow px-6 py-4 font-semibold text-slate-950 transition hover:scale-[1.01] hover:shadow-pink"
               >
-                Посмотреть платформу
+                Попробовать бесплатно
                 <ArrowRight size={18} />
               </button>
               <a
                 href="#world"
                 className="inline-flex items-center justify-center rounded-[1.4rem] border border-white/10 bg-white/5 px-6 py-4 font-medium text-white transition hover:bg-white/10"
               >
-                Как это устроено
+                Как проходит обучение
               </a>
             </div>
 
@@ -222,7 +221,7 @@ export function LandingPage({ onStartDemo }) {
             <div className="mt-8 grid gap-4 md:grid-cols-2">
                 <FeaturePanel
                   icon={Clock3}
-                  title="Сразу понятно, как здесь учатся"
+                  title="Понятная логика с первого взгляда"
                   text="Без длинных обещаний и лишнего шума. С первого экрана видно, что здесь есть структура и внутренняя логика."
                 />
                 <FeaturePanel
