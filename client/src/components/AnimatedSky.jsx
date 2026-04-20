@@ -14,13 +14,29 @@ const dots = [
   { top: "36%", left: "44%", size: 2, delay: "2.2s", duration: "5.7s" },
   { top: "52%", left: "70%", size: 4, delay: "0.3s", duration: "5.1s" },
   { top: "66%", left: "6%", size: 2, delay: "1.9s", duration: "4.7s" },
-  { top: "84%", left: "88%", size: 3, delay: "0.8s", duration: "5.9s" }
+  { top: "84%", left: "88%", size: 3, delay: "0.8s", duration: "5.9s" },
+  { top: "6%", left: "24%", size: 2, delay: "0.5s", duration: "5.1s" },
+  { top: "12%", left: "58%", size: 3, delay: "1.4s", duration: "4.9s" },
+  { top: "16%", left: "36%", size: 2, delay: "2.4s", duration: "6.1s" },
+  { top: "26%", left: "86%", size: 3, delay: "0.2s", duration: "4.5s" },
+  { top: "34%", left: "16%", size: 2, delay: "1.7s", duration: "5s" },
+  { top: "40%", left: "54%", size: 3, delay: "0.9s", duration: "5.6s" },
+  { top: "46%", left: "30%", size: 2, delay: "2.1s", duration: "4.8s" },
+  { top: "56%", left: "90%", size: 3, delay: "1.2s", duration: "5.3s" },
+  { top: "62%", left: "22%", size: 2, delay: "0.6s", duration: "4.4s" },
+  { top: "70%", left: "48%", size: 3, delay: "1.8s", duration: "5.8s" },
+  { top: "76%", left: "64%", size: 2, delay: "0.4s", duration: "5.2s" },
+  { top: "82%", left: "12%", size: 3, delay: "2.3s", duration: "4.9s" },
+  { top: "90%", left: "72%", size: 2, delay: "1s", duration: "5.4s" }
 ];
 
 const comets = [
   { top: "12%", left: "68%", delay: "0s" },
   { top: "38%", left: "6%", delay: "2.8s" },
-  { top: "74%", left: "58%", delay: "4.6s" }
+  { top: "74%", left: "58%", delay: "4.6s" },
+  { top: "20%", left: "84%", delay: "1.6s" },
+  { top: "58%", left: "26%", delay: "5.4s" },
+  { top: "82%", left: "74%", delay: "3.7s" }
 ];
 
 export function AnimatedSky() {

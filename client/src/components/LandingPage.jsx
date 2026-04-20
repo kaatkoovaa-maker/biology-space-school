@@ -16,6 +16,7 @@ import { HeroArt } from "./HeroArt";
 import lumenImage from "../assets/lumen-cut.png";
 import vitaImage from "../assets/vita-cut.png";
 import protosPlanet from "../assets/planets/custom/protos.png";
+import rocketImage from "../assets/rocket-cut-v4.png";
 import citaraPlanet from "../assets/planets/custom/citara.png";
 import genezisPlanet from "../assets/planets/custom/genezis.png";
 import vitariumPlanet from "../assets/planets/custom/vitarium.png";
@@ -78,23 +79,23 @@ const orbitPlanets = [
 const valueCards = [
   {
     icon: Rocket,
-    title: "Не про зубрёжку, а про путь",
-    text: "Ребёнок заходит не в очередной каталог уроков, а в мир, где у каждой темы есть своё место, настроение и следующий шаг."
+    title: "Путь вместо набора тем",
+    text: "Темы складываются в маршрут. Видно, с чего начать, что уже понято и куда двигаться дальше."
   },
   {
     icon: Brain,
-    title: "Сложное становится собранным",
-    text: "Клетка, генетика, человек, экология не висят в воздухе. Платформа связывает их в одну траекторию, и материал перестаёт распадаться в голове."
+    title: "Понимание вместо зубрёжки",
+    text: "Клетка, генетика, человек, экология перестают быть разрозненными блоками и собираются в цельную картину."
   },
   {
     icon: BadgeCheck,
-    title: "Эмоция без пустого шума",
-    text: "Здесь нет инфоцыганской мотивации и школьной казёнщины. Есть стиль, ритм и нормальная учебная опора."
+    title: "Спокойный ритм",
+    text: "Без давления и лишнего шума. Можно идти в своём темпе и при этом чувствовать движение вперёд."
   },
   {
     icon: Users,
-    title: "Одинаково читается двумя взглядами",
-    text: "Подросток видит атмосферу и характер. Родитель видит структуру, прозрачность и понятную причину доверять продукту."
+    title: "Уважение к ученику",
+    text: "Здесь нет ощущения, что с тобой разговаривают свысока. Есть ясность, вкус и серьёзное отношение к предмету."
   }
 ];
 
@@ -102,47 +103,47 @@ const processSteps = [
   {
     icon: Telescope,
     title: "1. Открываете демо",
-    text: "Без долгих созвонов и навязчивых форм. За пару минут становится понятно, как выглядит обучение изнутри."
+    text: "Можно спокойно посмотреть платформу изнутри и понять, подходит ли вам такой формат."
   },
   {
     icon: BookOpen,
-    title: "2. Видите маршрут, а не свалку тем",
-    text: "Планеты, миссии и уроки сразу показывают, где стартовать, что уже закрыто и куда двигаться дальше."
+    title: "2. Видите маршрут обучения",
+    text: "Планеты, уроки и миссии показывают не просто список тем, а последовательный путь от базы к уверенности."
   },
   {
     icon: ShieldCheck,
-    title: "3. Интерес закрепляется системой",
-    text: "Визуальный мир привлекает внимание, но удерживает не он, а ясная структура, нормальный прогресс и ощущение движения."
+    title: "3. Постепенно входите в систему",
+    text: "Атмосфера помогает войти, а дальше удерживает уже сама логика обучения: понимание, структура и прогресс."
   }
 ];
 
 const proofPoints = [
-  "Семь планет вместо безликого каталога из карточек и вкладок",
-  "Герои Люмен и Вита, которые делают продукт узнаваемым, а не просто красивым",
-  "Один кабинет, где теория, задания, прогресс и миссия собраны в одну логику",
-  "Формат, который подходит и для долгой подготовки, и для периода, когда нужно быстро собраться"
+  "Семь планет вместо безликого списка разделов",
+  "Один маршрут, в котором теория, задания и прогресс связаны между собой",
+  "Атмосфера, которая помогает удерживать внимание, не превращая обучение в игру ради игры",
+  "Подход, который подходит и для долгой подготовки, и для периода, когда нужно собраться"
 ];
 
 const faqItems = [
   {
     question: "Это только красивая обложка или там есть реальная учебная логика?",
     answer:
-      "Обложка здесь нужна не ради вау-эффекта. Она помогает быстро считать идею продукта, а внутри всё опирается на учебный маршрут: от базы к сложным блокам, с понятным прогрессом и следующими действиями."
+      "В основе здесь не визуал, а логика. Атмосфера помогает удержать внимание, но сам продукт построен как ясный учебный путь: от основы к сложным темам, шаг за шагом."
   },
   {
     question: "Подойдёт тем, кто боится биологии или постоянно откладывает?",
     answer:
-      "Да. БиоЛогика снижает порог входа: вместо чувства, что тебя сейчас завалят терминами, появляется ощущение понятного начала. Это особенно важно для тех, кто уже успел решить, что биология не для него."
+      "Да. Здесь важно не заставить, а аккуратно ввести в предмет. Когда материал становится понятнее и спокойнее по структуре, входить в него гораздо легче."
   },
   {
     question: "Это больше для школьников или для родителей, которые выбирают платформу?",
     answer:
-      "Для обоих сразу. И это принципиально: подростка цепляет эстетика и сюжет, родителя успокаивает внятная архитектура продукта и отсутствие дешёвых манипуляций."
+      "Для обоих. Подросток считывает атмосферу и ощущение пути, родитель видит систему, последовательность и серьёзное отношение к обучению."
   },
   {
     question: "Что должно быть на следующем шаге после лендинга?",
     answer:
-      "Демо-доступ. Лендинг не должен уговаривать слишком долго. Его задача — вызвать доверие, передать настроение продукта и мягко перевести человека внутрь платформы."
+      "Спокойный вход в демо. Без давления, без спешки. Просто возможность посмотреть, как устроена платформа, и почувствовать, подходит ли она вам."
   }
 ];
 
@@ -180,20 +181,19 @@ export function LandingPage({ onStartDemo }) {
       </header>
 
       <main className="relative z-10">
-        <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-16">
+        <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:pt-16">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.28em] text-cyanGlow">
               <Orbit size={16} />
-              Онлайн-платформа по биологии с собственным миром
+              Подготовка к ЕГЭ по биологии как цельный путь
             </div>
             <h1 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-6xl xl:text-7xl">
-              Биология может выглядеть так, будто её наконец делали люди со вкусом.
+              Из хаоса в систему. Из зубрёжки в понимание.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
-              БиоЛогика превращает подготовку к ЕГЭ в цельное путешествие по семи планетам. Здесь
-              предмет не распадается на случайные уроки, а собирается в историю: с героем,
-              прогрессом, понятным маршрутом и ощущением, что ты не тонешь в материале, а
-              постепенно начинаешь им владеть.
+              БиоЛогика помогает готовиться к ЕГЭ по биологии спокойно и последовательно. Здесь
+              материал собирается в понятный маршрут: с опорой, атмосферой и ощущением, что ты
+              постепенно начинаешь видеть связи, а не просто запоминать факты.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -202,14 +202,14 @@ export function LandingPage({ onStartDemo }) {
                 onClick={onStartDemo}
                 className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-gradient-to-r from-cyanGlow via-sky-400 to-pinkGlow px-6 py-4 font-semibold text-slate-950 transition hover:scale-[1.01] hover:shadow-pink"
               >
-                Открыть демо-доступ
+                Посмотреть платформу
                 <ArrowRight size={18} />
               </button>
               <a
                 href="#world"
                 className="inline-flex items-center justify-center rounded-[1.4rem] border border-white/10 bg-white/5 px-6 py-4 font-medium text-white transition hover:bg-white/10"
               >
-                Посмотреть мир платформы
+                Как это устроено
               </a>
             </div>
 
@@ -222,13 +222,13 @@ export function LandingPage({ onStartDemo }) {
             <div className="mt-8 grid gap-4 md:grid-cols-2">
                 <FeaturePanel
                   icon={Clock3}
-                  title="Сразу ясно, что это за продукт"
-                  text="Не нужно продираться через абстрактные обещания. За первый экран видно, как платформа думает, выглядит и чем отличается."
+                  title="Сразу понятно, как здесь учатся"
+                  text="Без длинных обещаний и лишнего шума. С первого экрана видно, что здесь есть структура и внутренняя логика."
                 />
                 <FeaturePanel
                   icon={Sparkles}
-                  title="Стиль есть, кринжа нет"
-                  text="Космическая тема здесь не для блёсток. Она помогает собрать характер продукта и удержать внимание без ощущения искусственности."
+                  title="Атмосфера работает на смысл"
+                  text="Мир, герои и визуальный язык помогают не отвлекаться, а мягко удерживать внимание и интерес к предмету."
                 />
               </div>
             </div>
@@ -236,18 +236,25 @@ export function LandingPage({ onStartDemo }) {
           <div className="relative">
             <div className="absolute inset-x-[12%] top-[6%] h-44 rounded-full bg-cyanGlow/20 blur-3xl" />
             <div className="glass-card relative overflow-hidden rounded-[2rem] border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] p-4 sm:p-6">
-              <div className="absolute right-5 top-5 rounded-full border border-pinkGlow/20 bg-pinkGlow/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-pinkGlow">
-                new landing
-              </div>
               <HeroArt />
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 <MiniSignal
-                  title="Траектория вместо хаоса"
-                  text="Пользователь видит не просто набор блоков, а понятный маршрут с логикой и темпом."
+                  title="Маршрут, который видно"
+                  text="Не нужно гадать, за что браться и что идёт дальше. Путь выстроен и читается сразу."
                 />
                 <MiniSignal
-                  title="История вместо шаблона"
-                  text="Каждая планета ощущается как глава, а не как очередная плитка из типового LMS."
+                  title="Мир, в котором хочется остаться"
+                  text="Каждая планета ощущается как часть одной большой системы, а не как случайный раздел."
+                />
+              </div>
+            </div>
+            <div className="landing-rocket-lane">
+              <div className="landing-rocket-wrap">
+                <img
+                  src={rocketImage}
+                  alt=""
+                  aria-hidden="true"
+                  className="landing-rocket-image"
                 />
               </div>
             </div>
@@ -260,13 +267,13 @@ export function LandingPage({ onStartDemo }) {
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-cyanGlow">Подход</p>
                 <h2 className="mt-3 max-w-3xl font-display text-3xl text-white sm:text-4xl">
-                  Это не “ещё один лендинг онлайн-школы”. Здесь есть позиция.
+                  Здесь важен не только результат, но и то, как человек к нему приходит.
                 </h2>
               </div>
               <p className="max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-                БиоЛогика не пытается казаться “современной” за счёт клише. Она продаёт через
-                ясную идею: ребёнку нужен не только контент, ему нужен мир, в который хочется
-                возвращаться, и система, которой можно доверять.
+                Мы исходим из простой мысли: биология становится ближе, когда в ней появляется
+                порядок. Поэтому БиоЛогика не перегружает и не давит. Она помогает постепенно
+                собрать предмет в голове и почувствовать уверенность в своём движении.
               </p>
             </div>
 
@@ -289,10 +296,11 @@ export function LandingPage({ onStartDemo }) {
 
         <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
           <div className="mb-6 rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 sm:p-8">
-            <p className="text-sm uppercase tracking-[0.28em] text-pinkGlow">Манифест</p>
+            <p className="text-sm uppercase tracking-[0.28em] text-pinkGlow">Философия</p>
             <p className="mt-4 max-w-5xl font-display text-2xl leading-[1.3] text-white sm:text-3xl">
-              Мы не делаем вид, что детям достаточно “просто объяснить тему попроще”. Им нужен
-              продукт, который уважает их вкус, внимание и желание чувствовать рост.
+              Хорошее обучение не пугает объёмом и не утомляет тоном. Оно даёт опору, показывает
+              путь и оставляет ощущение, что ты действительно становишься глубже и спокойнее в том,
+              что изучаешь.
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -312,12 +320,11 @@ export function LandingPage({ onStartDemo }) {
           <div className="glass-card rounded-[2rem] border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 sm:p-8">
             <p className="text-sm uppercase tracking-[0.28em] text-pinkGlow">Мир платформы</p>
             <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">
-              Семь планет, из-за которых маршрут хочется листать дальше.
+              Семь планет, которые помогают видеть логику пути.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-              Обычные платформы прячут смысл за интерфейсом. Здесь наоборот: сама навигация
-              становится частью идеи. Поэтому мир работает не как декор, а как способ сделать
-              обучение более ясным и цепким.
+              Здесь навигация работает не как декор, а как способ сделать обучение более ясным.
+              Каждая планета отмечает этап, настроение и внутреннюю точку роста.
             </p>
 
             <div className="mt-6 space-y-3">
@@ -375,12 +382,11 @@ export function LandingPage({ onStartDemo }) {
             <div className="glass-card overflow-hidden rounded-[2rem] border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-cyanGlow">Герои</p>
               <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">
-                Люмен и Вита нужны не для милоты. Они удерживают внимание и собирают тон продукта.
+                Люмен и Вита добавляют в обучение не детскость, а живое присутствие.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-                Хороший бренд в образовании запоминается не только логотипом. Персонажи создают
-                внутреннее напряжение, тепло и узнаваемость. За счёт этого БиоЛогика ощущается как
-                самостоятельная вселенная, а не как ещё одна версия чужого шаблона.
+                Они не отвлекают от серьёзности предмета, а помогают сделать путь более человечным.
+                За счёт этого платформа ощущается тёплой, цельной и запоминающейся.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <CharacterCard
@@ -403,20 +409,20 @@ export function LandingPage({ onStartDemo }) {
             <div className="glass-card rounded-[2rem] border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-pinkGlow">Что получает семья</p>
               <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">
-                Внешне это красиво. По сути это удобно, честно и понятно.
+                Красиво, спокойно и по делу.
               </h2>
               <div className="mt-6 space-y-4">
                 <BenefitRow
                   title="Подросток"
-                  text="Не чувствует, что его опять пытаются заманить скучной школьной риторикой. Он видит продукт, в который действительно можно зайти."
+                  text="Чувствует, что к нему относятся серьёзно. Здесь можно учиться без скуки и без ощущения, что тебя пытаются развлечь любой ценой."
                 />
                 <BenefitRow
                   title="Родитель"
-                  text="Быстро понимает, за что здесь платят: маршрут, ясность, дисциплина подачи и ощущение, что платформа собрана с головой."
+                  text="Видит внятную систему: маршрут, последовательность, понятный прогресс и спокойный, взрослый подход к обучению."
                 />
                 <BenefitRow
                   title="Платформа"
-                  text="Получает входной экран, который не просит доверия авансом, а сначала честно показывает характер продукта."
+                  text="Получает первый экран, который не давит и не заигрывает, а аккуратно показывает характер продукта и приглашает войти внутрь."
                 />
               </div>
             </div>
@@ -429,7 +435,7 @@ export function LandingPage({ onStartDemo }) {
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-cyanGlow">FAQ</p>
                 <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">
-                  Нормальные вопросы перед тем, как нажать “попробовать”.
+                  Несколько спокойных вопросов перед началом.
                 </h2>
               </div>
               <button
@@ -437,7 +443,7 @@ export function LandingPage({ onStartDemo }) {
                 onClick={onStartDemo}
                 className="inline-flex items-center gap-2 rounded-full bg-white text-slate-950 px-5 py-3 text-sm font-semibold transition hover:scale-[1.01]"
               >
-                Попробовать сейчас
+                Перейти к демо
                 <ArrowRight size={16} />
               </button>
             </div>
@@ -459,14 +465,14 @@ export function LandingPage({ onStartDemo }) {
             <div className="absolute -left-12 bottom-0 h-56 w-56 rounded-full bg-cyanGlow/20 blur-3xl" />
             <div className="relative z-10 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <p className="text-sm uppercase tracking-[0.28em] text-cyanGlow">Финальный CTA</p>
+                <p className="text-sm uppercase tracking-[0.28em] text-cyanGlow">Небольшой манифест</p>
                 <h2 className="mt-3 max-w-3xl font-display text-3xl text-white sm:text-5xl">
-                  Если продукт про рост, уверенность и движение вперёд, первый экран должен это чувствоваться сразу.
+                  Хочется, чтобы обучение ощущалось не как гонка, а как внимательный и красивый путь к пониманию.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
-                  Открой демо, посмотри, как устроен маршрут Люмена и Виты, и оцени не только
-                  визуал, но и то ощущение собранности, которого так не хватает большинству
-                  образовательных платформ.
+                  Когда в материале появляется структура, становится спокойнее. Когда появляется
+                  атмосфера, становится легче остаться. БиоЛогика соединяет эти две вещи, чтобы
+                  подготовка к биологии перестала быть хаотичной и стала по-настоящему своей.
                 </p>
               </div>
               <button
@@ -474,7 +480,7 @@ export function LandingPage({ onStartDemo }) {
                 onClick={onStartDemo}
                 className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-white px-6 py-4 text-base font-semibold text-slate-950 transition hover:scale-[1.01]"
               >
-                Перейти к регистрации
+                Спокойно посмотреть демо
                 <ArrowRight size={18} />
               </button>
             </div>

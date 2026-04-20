@@ -367,6 +367,66 @@ h4,
   z-index: 0;
 }
 
+.landing-rocket-lane {
+  position: relative;
+  margin-top: 2.4rem;
+  margin-right: 0.5rem;
+  height: 13.5rem;
+  overflow: visible;
+}
+
+.landing-rocket-wrap {
+  position: absolute;
+  right: 4.25rem;
+  bottom: -4.6rem;
+  width: 11rem;
+  height: 11rem;
+  pointer-events: none;
+  animation: landingRocketFlyAway 10s cubic-bezier(0.24, 0.76, 0.22, 1) infinite;
+}
+
+.landing-rocket-wrap::before,
+.landing-rocket-wrap::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.landing-rocket-wrap::before {
+  left: -6.5rem;
+  bottom: 3.6rem;
+  width: 10rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 199, 110, 0.16) 28%, rgba(255, 142, 80, 0.36) 56%, rgba(255, 79, 216, 0.08) 100%);
+  filter: blur(7px);
+  transform: rotate(-22deg);
+  transform-origin: right center;
+  opacity: 0.95;
+}
+
+.landing-rocket-wrap::after {
+  left: -2.4rem;
+  bottom: 4.1rem;
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(65, 240, 255, 0.34), rgba(65, 240, 255, 0));
+  filter: blur(12px);
+  opacity: 0.72;
+}
+
+.landing-rocket-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-15deg);
+  filter:
+    drop-shadow(0 10px 24px rgba(255, 150, 64, 0.24))
+    drop-shadow(0 0 26px rgba(65, 240, 255, 0.18));
+}
+
 .hero-planet {
   border-radius: 9999px;
   filter: blur(0.2px);
@@ -508,5 +568,27 @@ h4,
   }
   50% {
     transform: translate3d(-16px, -12px, 0) rotate(14deg) scale(0.86);
+  }
+}
+
+@keyframes landingRocketFlyAway {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(-8deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  38% {
+    transform: translate3d(-8px, -12px, 0) scale(1.02) rotate(-4deg);
+    opacity: 1;
+  }
+  72% {
+    transform: translate3d(76px, -92px, 0) scale(0.82) rotate(10deg);
+    opacity: 0.96;
+  }
+  100% {
+    transform: translate3d(138px, -154px, 0) scale(0.54) rotate(16deg);
+    opacity: 0;
   }
 }

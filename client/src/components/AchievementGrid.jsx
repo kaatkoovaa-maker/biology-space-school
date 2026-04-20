@@ -1,60 +1,71 @@
+import achievementA1 from "../assets/achievements/a2-medal.png";
+import achievementA2 from "../assets/achievements/a2-medal.png";
+import achievementA3 from "../assets/achievements/a3-rocket.png";
+import achievementA4 from "../assets/achievements/a4-trophy.png";
+import achievementA5 from "../assets/achievements/a5-book.png";
+import achievementA6 from "../assets/achievements/a6-alien.png";
+import achievementA7 from "../assets/achievements/a7-earth.png";
+import achievementA8 from "../assets/achievements/a8-tech-orb.png";
+import achievementA9 from "../assets/achievements/a9-coral-world.png";
+import achievementA10 from "../assets/achievements/a10-grand-star.png";
+
 const achievementStyles = {
   a1: {
     accent: "from-cyan-300 via-sky-400 to-blue-500",
     glow: "shadow-[0_0_30px_rgba(90,220,255,0.22)]",
-    icon: DropBadge
+    image: achievementA1
   },
   a2: {
     accent: "from-sky-300 via-cyan-400 to-indigo-500",
     glow: "shadow-[0_0_30px_rgba(76,190,255,0.2)]",
-    icon: PlanetBadge
+    image: achievementA2
   },
   a3: {
     accent: "from-fuchsia-300 via-pink-400 to-violet-500",
     glow: "shadow-[0_0_30px_rgba(236,90,255,0.2)]",
-    icon: LaunchBadge
+    image: achievementA3
   },
   a4: {
     accent: "from-amber-200 via-orange-300 to-pink-400",
     glow: "shadow-[0_0_30px_rgba(255,174,77,0.22)]",
-    icon: StarBadge
+    image: achievementA4
   },
   a5: {
     accent: "from-lime-200 via-emerald-300 to-cyan-400",
     glow: "shadow-[0_0_30px_rgba(124,255,193,0.18)]",
-    icon: GeneBadge
+    image: achievementA5
   },
   a6: {
     accent: "from-rose-200 via-pink-300 to-fuchsia-500",
     glow: "shadow-[0_0_30px_rgba(255,122,210,0.2)]",
-    icon: OrbitBadge
+    image: achievementA6
   },
   a7: {
     accent: "from-cyan-200 via-teal-300 to-emerald-400",
     glow: "shadow-[0_0_30px_rgba(112,255,228,0.18)]",
-    icon: HumanBadge
+    image: achievementA7
   },
   a8: {
     accent: "from-yellow-200 via-amber-300 to-orange-500",
     glow: "shadow-[0_0_30px_rgba(255,183,74,0.22)]",
-    icon: RocketBadge
+    image: achievementA8
   },
   a9: {
     accent: "from-indigo-200 via-sky-300 to-cyan-400",
     glow: "shadow-[0_0_30px_rgba(111,204,255,0.2)]",
-    icon: CosmosBadge
+    image: achievementA9
   },
   a10: {
     accent: "from-cyan-100 via-fuchsia-300 to-violet-500",
     glow: "shadow-[0_0_36px_rgba(164,132,255,0.28)]",
-    icon: CrownBadge
+    image: achievementA10
   }
 };
 
 const fallbackStyle = {
   accent: "from-slate-300 via-slate-400 to-slate-500",
   glow: "",
-  icon: StarBadge
+  image: achievementA10
 };
 
 export function AchievementGrid({ achievements }) {
@@ -69,7 +80,6 @@ export function AchievementGrid({ achievements }) {
       <div className="grid gap-4 md:grid-cols-2">
         {achievements.map((achievement) => {
           const style = achievementStyles[achievement.id] || fallbackStyle;
-          const Icon = style.icon;
 
           return (
             <article
@@ -88,7 +98,11 @@ export function AchievementGrid({ achievements }) {
                       : "border-white/10 bg-slate-900/70"
                   }`}
                 >
-                  <Icon locked={!achievement.unlocked} />
+                  <AchievementBadge
+                    src={style.image}
+                    title={achievement.title}
+                    locked={!achievement.unlocked}
+                  />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-medium text-white">{achievement.title}</p>
@@ -107,6 +121,16 @@ export function AchievementGrid({ achievements }) {
         })}
       </div>
     </section>
+  );
+}
+
+function AchievementBadge({ src, title, locked = false }) {
+  return (
+    <img
+      src={src}
+      alt={title}
+      className={`h-12 w-12 object-contain transition ${locked ? "opacity-45 grayscale" : "opacity-100"}`}
+    />
   );
 }
 
