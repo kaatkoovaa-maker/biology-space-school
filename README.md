@@ -41,7 +41,7 @@ npm run dev:client
 PORT=5000
 MONGODB_URI=mongodb://127.0.0.1:27017/biology-space-school
 JWT_SECRET=super-secret-space-key
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5173,https://biology-space-web.onrender.com
 ```
 
 Если MongoDB недоступна, сервер использует встроенные seed-данные для демо-режима.

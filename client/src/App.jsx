@@ -24,7 +24,7 @@ function resolveApiUrl() {
     return import.meta.env.VITE_API_URL;
   }
 
-  if (typeof window !== "undefined" && window.location.hostname.includes("onrender.com")) {
+  if (typeof window !== "undefined" && window.location.hostname === "biology-space-web.onrender.com") {
     return "https://biology-space-api.onrender.com/api";
   }
 

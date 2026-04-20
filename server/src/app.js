@@ -6,7 +6,9 @@ import userRoutes from "./routes/userRoutes.js";
 
 export function createApp() {
   const app = express();
-  const allowedOrigins = (process.env.CLIENT_URL || "")
+  const allowedOrigins = (
+    process.env.CLIENT_URL || "http://localhost:5173,https://biology-space-web.onrender.com"
+  )
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
